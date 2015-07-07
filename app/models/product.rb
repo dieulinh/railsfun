@@ -7,6 +7,8 @@ class Product < ActiveRecord::Base
 	scope :published, -> { where(published: true) }
 	scope :price_more_than, -> (price) { where('price > ?', price)}
 	scope :description_includes, -> (text) { where('description LIKE ?', "%#{text}%") }
+	
+	belongs_to :categogy
 
 	def title_is_shorter_than_description
 		return if title.blank? or description.blank?
