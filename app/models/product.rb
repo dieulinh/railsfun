@@ -1,4 +1,8 @@
 class Product < ActiveRecord::Base
+	extend Enumerize
+
+  enumerize :difficulty_level, in: [:easy, :medium, :hard]
+
 	validate :title_is_shorter_than_description
 	validates :price, numericality: { greater_than: 0 }, presence: true
 	validates :category, presence: true
