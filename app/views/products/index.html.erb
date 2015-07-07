@@ -1,0 +1,48 @@
+<table>
+	<tr>
+		<th>
+			Product Title
+		</th>
+		<th>
+			Product Description
+		</th>
+		<th>
+			Product Price
+		</th>
+		<th>
+			Product Category
+		</th>
+		<th>
+			Product Country
+		</th>
+		<th>
+			Product Difficulty Level
+		</th>
+	</tr>
+	
+	<% @products.each do |product| %>
+		<tr>
+			<td>
+				<h3>
+					<%= product.title %><br>
+				</h3>
+			</td>
+			<td>
+					<%= product.description %><br>
+			</td>
+			<td>
+					<%= product.price %><br>
+			</td>
+			<td>
+					<%= product.category.title %><br>
+			</td>
+			<td>
+					<%= product.difficulty_level %><br>
+			</td>
+			<td>
+					<%= product.country_of_origin %><br>
+			</td>
+	</tr>
+	<% end %>
+
+</table>
