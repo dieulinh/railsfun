@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
 	extend Enumerize
 
   enumerize :difficulty_level, in: [:easy, :medium, :hard]
+  enumerize :country_of_origin, in: Country.all
 
 	validate :title_is_shorter_than_description
 	validates :price, numericality: { greater_than: 0 }, presence: true
