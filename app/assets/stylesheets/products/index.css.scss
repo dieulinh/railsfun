@@ -1,0 +1,4 @@
+h1 {
+	font-size: $product_font_size;
+	@include border($product_border_size, $product_border_color);
+}
