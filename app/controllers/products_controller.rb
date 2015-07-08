@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-	before_action :find_product, only: [:show, :edit, :update]
+	before_action :find_product, only: [:show, :edit, :update, :destroy]
 	def index
 		@products = Product.all.includes(:category).published
 	end
@@ -12,6 +12,17 @@ class ProductsController < ApplicationController
 
 	def edit
 		render :new
+	end
+
+	def destroy
+		if @product.destroy
+			
+			flash[:notice] = "Successfully delete product"
+			redirect_to products_url
+		else
+			flash[:notice] = "There is an error when delete the product"
+		end
+
 	end
 
 	def update
