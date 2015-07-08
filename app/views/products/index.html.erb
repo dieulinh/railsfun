@@ -19,6 +19,9 @@
 		<th>
 			Product Difficulty Level
 		</th>
+		<th>
+			ACTIONS
+		</th>
 	</tr>
 	
 	<% @products.each do |product| %>
@@ -42,6 +45,9 @@
 			</td>
 			<td>
 					<%= product.country_of_origin %><br>
+			</td>
+			<td>
+					<%= link_to "edit", edit_product_path(product) %>
 			</td>
 	</tr>
 	<% end %>

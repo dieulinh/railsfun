@@ -1,14 +1,26 @@
 class ProductsController < ApplicationController
+	before_action :find_product, only: [:show, :edit, :update]
 	def index
 		@products = Product.all.includes(:category).published
 	end
 	
-	def show
-		@product = Product.find(params[:id])
-	end
+	def show; end
 	
 	def new
 		@product = Product.new
+	end
+
+	def edit
+		render :new
+	end
+
+	def update
+    if @product.update(product_params)
+      redirect_to products_url
+      flash[:notice] = "update successfully"
+    else
+      flash[:notice] = "There is an error when update product"
+    end
 	end
 
 	def create
@@ -31,5 +43,9 @@ class ProductsController < ApplicationController
 																		 :published,
 																		 :category_id,
 																		 :country_of_origin )
+	end
+
+	def find_product
+		@product = Product.find(params[:id])
 	end
 end
