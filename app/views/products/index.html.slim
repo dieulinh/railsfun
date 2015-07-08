@@ -2,20 +2,12 @@ p == "Create Product  #{link_to 'New Product', new_product_path} "
 table
 	tr
 		th Product Title
-		
 		th Product Description
-		
 		th Product Price
-		
 		th Product Category
-		
 		th Product Country
-		
-		
 		th Product Difficulty Level
-		
 		th ACTIONS
-		
 
 	- if @products.any?
 		- @products.each do |p| 
