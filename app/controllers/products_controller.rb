@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
 
 	def update
     if @product.update(product_params)
-      redirect_to products_url
+      redirect_to product_url
       flash[:notice] = "update successfully"
     else
       flash[:notice] = "There is an error when update product"
